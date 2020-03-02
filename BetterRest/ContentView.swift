@@ -20,7 +20,7 @@ struct ContentView: View {
     var body: some View {
         NavigationView{
             Form{
-                VStack(alignment: .leading, spacing: 0){
+                Section{
                     Text("When do you want to wake up?")
                         .font(.headline)
                     
@@ -28,7 +28,7 @@ struct ContentView: View {
                         .labelsHidden()
                         .datePickerStyle(WheelDatePickerStyle())
                 }
-                VStack(alignment: .leading, spacing: 0){
+                Section{
                     
                         Text("Desired amount of sleep")
                             .font(.headline)
@@ -38,11 +38,11 @@ struct ContentView: View {
                     }
                 }
                 
-                VStack(alignment: .leading, spacing: 0){
+                Section{
                     Text("Daily cofee intake")
                         .font(.headline)
                     
-                    Stepper(value: $coffeeAmount, in: 1...20) {
+                    Stepper(value: $coffeeAmount, in: 0...20) {
                         if coffeeAmount == 1 {
                             Text("1 cup")
                         } else {
