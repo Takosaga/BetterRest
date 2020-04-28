@@ -35,7 +35,9 @@ struct ContentView: View {
                         
                         Stepper(value: $sleepAmount, in: 4...12, step: 0.25) {
                             Text("\(sleepAmount, specifier: "%g") hours")
+                            
                     }
+                        .accessibility(value: Text("\(sleepAmount, specifier: "%g" ) hours of sleep "))
                 }
                 
                 Section{
@@ -45,10 +47,13 @@ struct ContentView: View {
                     Stepper(value: $coffeeAmount, in: 0...20) {
                         if coffeeAmount == 1 {
                             Text("1 cup")
+                                .accessibility(hidden: true)
                         } else {
                             Text("\(coffeeAmount) cups")
+                                .accessibility(hidden: true)
                         }
                     }
+                    .accessibility(value: Text("\(coffeeAmount) cups of coffee"))
                 }
                 .navigationBarTitle("BetterRest")
                 .navigationBarItems(trailing:
